@@ -5,7 +5,6 @@ import LaunchCard from '../components/LaunchCard/LaunchCard';
 
 export default function Home() {
   const { launches, isLoading, error } = useLaunches();
-  console.log(launches);
   return (
     <Box p={6}>
       <Heading mb={4}>SpaceX Launches</Heading>
