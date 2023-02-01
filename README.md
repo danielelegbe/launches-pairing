@@ -1,33 +1,25 @@
-## Getting Started
+# SpaceX Launches
 
-First, run the development server:
+To run the application, run `yarn dev` in the root directory.
+To run the tests in the terminal, run `yarn test` in the root directory.
+To open cypress, run `yarn cy:open` in the root directory. Click "Component testing" to view the LaunchCard component 
+test.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Technologies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### SWR
+This is a simple and lightweight data fetching library I used to get the launches data from the SpaceX api. Nowadays, I
+tend to stay away from making api calls in a useEffect since React 18, and instead use a library like SWR to handle it
+instead. One thing to note - Even though this is Next.js app, I could have made the api call from the server instead of
+the client, but I remembered from our chat that you mentioned you're migrating away from Next.js so I imagine this would
+probably be what your api requests would look like once you've migrated.
 
-## Task to be completed
-We would like you to clone this repository and amend the home page to display a list of Cards with the launches data retrieved from the spacex data API. You may take as long as you require to complete the solution to demonstrate your knowledge in creating a web application, however, we ideally would like this returned within 3 days.
+### Chakra UI
+I used Chakra UI for the styling of the application. This is one of my favourite libraries for styling React applications
+alongside Tailwind. Chakra UI comes with a lot of components out of the box, and it's easy to use and style via props.
 
-Please consider the structure of your code and develop as if you were working in a commercial team environment and test the solution as you see fit.
-
-The restful api that we would like you to use is https://api.spacexdata.com/v5/
-
-You can find docs for this API here: https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs
-
-Your solution should cover the following tasks:
-- Make API request(s) on page load
-- Display data top 10 items
-- Provide some test coverage for your project
-
-The data that we would like you to display are:
-- `name`
-- `date_utc`
-- The first core serial/name from `cores`
-- `id` and `type` from payloads
-- display the image from `links.patch.small` in links
-- use `success` and `failures` to show the user the success/failure of launch and reason of failure.
+### Cypress
+For testing of the components, I decided to use Cypress and Cypress testing library instead of the usualy Jest and React
+Testing Library. My main problem with Jest is that it's quite hard to debug tests as you often have to either use the
+debugger or add console.logs to see what's going on. Cypress has more boilerplate and requires a bit of setup, but it
+is a lot easier to debug, as you can see the components in its GUI. 
